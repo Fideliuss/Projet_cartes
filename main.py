@@ -6,14 +6,13 @@ class Deck:
         self.colors = ["Carreau", "Pique", "Coeur", "Tréfle"]
         self.numbers = ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"]
         self.paquet = []
-        self.nb_cards = 0
         self.set_deck()
         self.riffle_riffle()
 
     def set_deck(self):
         for color in self.colors:
             for number in self.numbers:
-                self.paquet.append(f"{number} de {color}")
+                self.paquet.append((number, color))
 
     def riffle_riffle(self):
         rng.shuffle(self.paquet)
@@ -42,6 +41,4 @@ j1 = [deck.draw_card(), deck.draw_card()]
 j2 = [deck.draw_card(), deck.draw_card()]
 j3 = [deck.draw_card(), deck.draw_card()]
 board = deck.draw_board()
-
-
-
+print(board)
