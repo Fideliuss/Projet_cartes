@@ -34,7 +34,7 @@ class Deck:
         turn = self.draw_card()
         self.draw_card()
         river = self.draw_card()
-        return [flop, turn, river]
+        return flop + [turn, river]
 
 
 deck = Deck()
