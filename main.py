@@ -28,8 +28,11 @@ class Deck:
         return print("*Riffle Riffle* Paquet reconstitué et mélangé")
 
     def draw_board(self):
+        self.draw_card()
         flop = [self.draw_card(), self.draw_card(), self.draw_card()]
+        self.draw_card()
         turn = self.draw_card()
+        self.draw_card()
         river = self.draw_card()
         return [flop, turn, river]
 
