@@ -7,10 +7,10 @@ class Deck:
         self.numbers = ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"]
         self.paquet = []
         self.nb_cards = 0
-        self.creer_paquet()
+        self.set_deck()
         self.riffle_riffle()
 
-    def creer_paquet(self):
+    def set_deck(self):
         for color in self.colors:
             for number in self.numbers:
                 self.paquet.append(f"{number} de {color}")
@@ -18,8 +18,27 @@ class Deck:
     def riffle_riffle(self):
         rng.shuffle(self.paquet)
 
-    def draw_random_card(self):
-        rand_index = rng.randint(0, 51)
-        return self.paquet.pop(rand_index)
+    def draw_card(self):
+        return self.paquet.pop()
+
+    def reset_deck(self):
+        self.paquet[:] = []
+        self.set_deck()
+        self.riffle_riffle()
+        return print("*Riffle Riffle* Paquet reconstitué et mélangé")
+
+    def draw_board(self):
+        flop = [self.draw_card(), self.draw_card(), self.draw_card()]
+        turn = self.draw_card()
+        river = self.draw_card()
+        return [flop, turn, river]
+
+
+deck = Deck()
+j1 = [deck.draw_card(), deck.draw_card()]
+j2 = [deck.draw_card(), deck.draw_card()]
+j3 = [deck.draw_card(), deck.draw_card()]
+board = deck.draw_board()
+
 
 
