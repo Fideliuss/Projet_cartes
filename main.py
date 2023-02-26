@@ -13,7 +13,7 @@ class Deck:
     def creer_paquet(self):
         for color in self.colors:
             for number in self.numbers:
-                self.paquet.append((color, number))
+                self.paquet.append(f"{number} de {color}")
 
     def riffle_riffle(self):
         rng.shuffle(self.paquet)
@@ -23,5 +23,3 @@ class Deck:
         return self.paquet.pop(rand_index)
 
 
-paquet = Deck()
-print(paquet.paquet)
