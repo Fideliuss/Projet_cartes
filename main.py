@@ -6,7 +6,8 @@ class Deck:
         self.colors = ["Carreau", "Pique", "Coeur", "Trèfle"]
         self.numbers = ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"]
         self.cards = []
-        self.set_deck(nb_deck)
+        self.nb_deck = nb_deck
+        self.set_deck(self.nb_deck)
         self.riffle_riffle()
 
     def set_deck(self, nb_deck):
@@ -23,7 +24,7 @@ class Deck:
 
     def reset_deck(self):
         self.cards[:] = []
-        self.set_deck()
+        self.set_deck(self.nb_deck)
         self.riffle_riffle()
         return print("*Riffle Riffle* Deck reconstitué et mélangé")
 
@@ -38,4 +39,4 @@ class Deck:
 
 
 deck = Deck(6)
-print(deck.cards)
+print(len(deck.cards))
