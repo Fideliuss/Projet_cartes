@@ -26,8 +26,13 @@ class Deck:
     def draw_random_card(self):
         return self.cards.pop(rng.randint(0, len(self.cards)))
 
+    def draw_cards(self, n):
+        cards = []
+        for i in range(n):
+            cards.append(self.cards.pop(0))
+        return cards
+
     def reset_deck(self):
         self.cards[:] = []
         self.set_deck(self.nb_deck)
         self.riffle_riffle()
-        return print("*Riffle Riffle* Deck reconstitué et mélangé")
