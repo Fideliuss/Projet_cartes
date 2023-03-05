@@ -8,6 +8,6 @@ bj = BlackJackGame()
 print(len(poker.cards))
 print(len(bj.cards))
 print(poker.draw_board())
-deck.load_deck()
+poker.save_deck()
 
-print(deck.cards)
+print(poker.cards)

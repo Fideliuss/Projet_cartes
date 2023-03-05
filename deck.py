@@ -1,4 +1,5 @@
 import random as rng
+import json
 
 
 class Deck:
@@ -39,11 +40,13 @@ class Deck:
         self.riffle_riffle()
 
     def save_deck(self):
-        file = open(f"deck.txt", "w")
-        file.write(str(self.cards))
-        file.close()
+        with open(f"deck_saves/deck_{self.deck_id}.txt", "w") as file:
+            save = {"id": self.deck_id, "deck": self.cards}
+            json.dump(save, file)
+        print(f"deck save with the Id : {self.deck_id} (Keep that reference)")
 
     def load_deck(self):
-        file = open(f"deck.txt", "r")
-        self.cards = file.read()
-        file.close()
+        load_id = input("Id of the deck you want to load : ")
+        with open(f"deck_saves/deck_{load_id}.txt", "r") as file:
+            load = json.load(file)
+        self.cards = load["deck"]
