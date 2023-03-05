@@ -3,6 +3,7 @@ import random as rng
 
 class Deck:
     def __init__(self, nb_deck=1, shuffled=True):
+        self.deck_id = rng.randint(0, 2**16)
         self.colors = ["Carreau", "Pique", "Coeur", "Trèfle"]
         self.numbers = ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"]
         self.cards = []
@@ -36,3 +37,13 @@ class Deck:
         self.cards[:] = []
         self.set_deck(self.nb_deck)
         self.riffle_riffle()
+
+    def save_deck(self):
+        file = open(f"deck.txt", "w")
+        file.write(str(self.cards))
+        file.close()
+
+    def load_deck(self):
+        file = open(f"deck.txt", "r")
+        self.cards = file.read()
+        file.close()
