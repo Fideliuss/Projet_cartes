@@ -1,3 +1,4 @@
+import os
 import random as rng
 import json
 
@@ -50,3 +51,8 @@ class Deck:
         with open(f"deck_saves/deck_{load_id}.txt", "r") as file:
             load = json.load(file)
         self.cards = load["deck"]
+        remove = input("Do you want to remove the save (y to proceed) ?>")
+        if remove.lower() == "y":
+            os.remove(f"deck_saves/deck_{load_id}.txt")
+            print(f"deck n°{load_id} deleted sucessfully")
+
