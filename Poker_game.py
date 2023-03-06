@@ -1,26 +1,26 @@
 from deck import *
 
 
-class PokerGame(Deck):
+class PokerGame:
     def __init__(self):
-        super().__init__(1)
+        self.deck = Deck()
         self.flop = []
         self.turn = ()
         self.river = ()
 
     def draw_flop(self):
-        self.draw_first_card()  # 1st burnt card
-        self.flop = self.draw_cards(3)
+        self.deck.draw_first_card()  # 1st burnt card
+        self.flop = self.deck.draw_cards(3)
         return self.flop
 
     def draw_turn(self):
-        self.draw_first_card()  # 2nd burnt card
-        self.turn = self.draw_first_card()
+        self.deck.draw_first_card()  # 2nd burnt card
+        self.turn = self.deck.draw_first_card()
         return self.turn
 
     def draw_river(self):
-        self.draw_first_card()  # 3rd burnt card
-        self.river = self.draw_first_card()
+        self.deck.draw_first_card()  # 3rd burnt card
+        self.river = self.deck.draw_first_card()
         return self.river
 
     def draw_board(self):

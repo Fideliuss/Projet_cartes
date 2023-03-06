@@ -42,7 +42,9 @@ class Deck:
 
     def save_deck(self):
         with open(f"deck_saves/deck_{self.deck_id}.txt", "w") as file:
-            save = {"id": self.deck_id, "deck": self.cards}
+            save = {"id": self.deck_id,
+                    "deck": self.cards
+                    }
             json.dump(save, file)
         print(f"deck save with the Id : {self.deck_id} (Keep that reference)")
 

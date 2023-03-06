@@ -1,6 +1,6 @@
 from deck import *
 
 
-class BlackJackGame(Deck):
+class BlackJackGame:
     def __init__(self):
-        super().__init__(6)
+        self.shoe = Deck(6)
